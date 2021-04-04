@@ -27,5 +27,3 @@ client_socket.send(sentence.encode())
 # Output message status from server
 message_status = client_socket.recv(BUFFER)
 print(("From Server: {}").format(message_status.decode()))
-
-client_socket.close()  
