@@ -14,7 +14,7 @@ SERVER_PORT = 12000
 BUFFER = 1024
 server_log = []
 
-def listenToClientMessages(connection_socket, addr, client_count):
+def listen_to_client(connection_socket, addr, client_count):
 	# Since the server will only accept two connections clients 
 	# only have two labeling options: X for the first, and Y for the second
 	client_name = 'X' if client_count == 0 else 'Y'
@@ -59,7 +59,7 @@ def main():
 		elif client_count == 1:
 			print("Accepted second connection, calling it client Y\n\nWaiting to receive messages from client X and client Y...")
 
-		thread = threading.Thread(target=listenToClientMessages, args=[connection_socket, addr, client_count])
+		thread = threading.Thread(target=listen_to_client, args=[connection_socket, addr, client_count])
 		thread.start()
 
 		client_count += 1
